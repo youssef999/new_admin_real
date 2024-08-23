@@ -21,7 +21,7 @@ class ItemView extends StatefulWidget {
 }
 
 class _ItemViewState extends State<ItemView> {
-  NewItemController controller = Get.put(NewItemController(), permanent: true);
+  NewItemController controller = Get.put(NewItemController());
   @override
   void initState() {
     try {
@@ -31,7 +31,8 @@ class _ItemViewState extends State<ItemView> {
     } catch (e) {
       // Ui.logSuccess(e);
     }
-
+      controller.radioValue = "one";
+    controller.selectedListArea.value = controller.firstArea;
     controller.pickedImageXFiles = [];
     controller.pickedImageXFiles2 = [];
     super.initState();

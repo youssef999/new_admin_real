@@ -11,7 +11,6 @@ import 'package:realstateAdmin/features/views/admin_view.dart';
 class BuildingController extends GetxController{
 
  List  buildingList=[];
-
  getAllBuildings () async{
   print("GET ALL BUILDINGS....");
   buildingList=[];

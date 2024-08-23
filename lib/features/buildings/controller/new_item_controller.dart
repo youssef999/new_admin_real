@@ -15,6 +15,7 @@ import 'package:realstateAdmin/features/views/admin_view.dart';
 
 
 class NewItemController extends GetxController {
+
   String catValue = 'Graphic Design';
 
   RxMap<String, dynamic>? userData = <String, dynamic>{}.obs;
@@ -29,6 +30,8 @@ class NewItemController extends GetxController {
   Rx<int> secoundValue = 1.obs;
   @override
   void onInit() async {
+    selectedCountry = 'العاصمة'.obs;
+    
     // try {
     //   final box = GetStorage();
     //   users.value =
@@ -687,9 +690,10 @@ String buildingImage = joinImages(imagesList);
             'Authorization': basicUrl,
           },
           body: json.encode({
+
+
             "images": downloadUrls.toString(),
             "image": "[$buildingImage]",
-            
             //"[$imageLink, $imageLink2]",
             //images,
             //downloadUrls.toString(),
@@ -698,7 +702,7 @@ String buildingImage = joinImages(imagesList);
             // "https://content.almalnews.com/wp-content/uploads/2019/10/%D8%A7%D9%84%D8%A7%D8%B3%D9%83%D8%A7%D9%86-1.jpg",
             'id': build.value.id,
             'name': build.value.name,
-            'user_id':"Admin",
+            'user_id':"200",
             'cat': build.value.cat,
             'type': build.value.type,
             'price': build.value.price,
@@ -722,6 +726,7 @@ String buildingImage = joinImages(imagesList);
       print("STATUS locations CODE==========${request.statusCode}");
       Ui.logError("bodyyyy===xxxxx=======${request.body.contains('true')}");
       if(request.statusCode==200){
+
         isLoading=false;
         selectedCountry = 'العاصمة'.obs;
         selectedArea = "مدينة جابر الأحمد".obs;
@@ -738,6 +743,7 @@ String buildingImage = joinImages(imagesList);
     } catch (e) {
       print("ERROR==ADD ITEM=$e");
     }
+    
   }
 
   void radioButtonChanges(String? value) {
